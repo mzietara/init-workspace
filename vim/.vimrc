@@ -10,16 +10,6 @@ let g:netrw_winsize = 25
 set nowrap
 set encoding=utf8
 
-"""" START Vundle Configuration
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-"Plugin 'fatih/vim-go'
-" Add plugins here
-"
-call vundle#end()
 filetype plugin indent on
 
 " On pressing tab, insert 2 spaces
