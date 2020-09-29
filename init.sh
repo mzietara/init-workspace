@@ -33,3 +33,5 @@ apt-get install -y yamllint
 
 ## Install go
 apt install -y golang
+
+sh init-dotfiles
