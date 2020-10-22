@@ -1,6 +1,15 @@
 set -e
 
-git clone https://github.com/$USER/$REPO ~/dotfiles
+user=$1
+repo=dotfiles
+
+if [ -z "$1" ]
+then
+  echo "ERROR[NO_ARG_USER]: You must specify arg user"
+  exit
+fi
+
+git clone https://github.com/$user/$repo ~/dotfiles
 cd ~/dotfiles
 
 git submodule init
