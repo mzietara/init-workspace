@@ -36,5 +36,7 @@ apt install -y golang
 
 apt install -y fzf
 
+apt-get install zsh
+
 sh init-dotfiles.sh
 
