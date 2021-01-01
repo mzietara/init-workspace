@@ -9,8 +9,8 @@ DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
 
 apt-get install -y git
 apt-get install -y software-properties-common
-add-apt-repository -y ppa:jonathonf/vim
-add-apt-repository -y ppa:longsleep/golang-backports
+#add-apt-repository -y ppa:jonathonf/vim
+#add-apt-repository -y ppa:longsleep/golang-backports
 apt update
 
 apt install -y vim
@@ -42,5 +42,11 @@ apt install -y golang
 
 apt-get install -y zsh
 
+curl -o /usr/local/bin/googler
+https://raw.githubusercontent.com/jarun/googler/v4.3.1/googler
+chmod +x /usr/local/bin/googler
+googler -u
+
 bash init-dotfiles.sh $user
+
 

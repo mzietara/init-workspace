@@ -9,12 +9,6 @@ then
   echo "ERROR[NO_ARG_USER]: You must specify arg user"
   exit
 fi
-if [ -z "$2" ]
-then
-  link=false 
-  exit
-fi
-link=$2
 if [ -d "~/dotfiles"  ]
 then
   rm ~/dotfiles
