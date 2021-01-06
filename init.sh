@@ -1,25 +1,20 @@
 set -e
-user=mzietara
+USERNAME=mark
+GITHUB_USER=mzietara
+
 
 apt update
 apt-get update
 apt-get upgrade -y
 
-DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
-
-apt-get install -y git
-apt-get install -y software-properties-common
-#add-apt-repository -y ppa:jonathonf/vim
-#add-apt-repository -y ppa:longsleep/golang-backports
-apt update
-
 apt install -y vim
 
 apt-get install -y \
+    git \
+    software-properties-common \
     apt-transport-https \
     ca-certificates \
     curl \
-    software-properties-common
 
 ## instal brew for homebrew
 #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -42,11 +37,13 @@ apt install -y golang
 
 apt-get install -y zsh
 
-curl -o /usr/local/bin/googler
-https://raw.githubusercontent.com/jarun/googler/v4.3.1/googler
+curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v4.3.1/googler
 chmod +x /usr/local/bin/googler
 googler -u
 
-bash init-dotfiles.sh $user
+mkdir /tmp/LS_COLORS && curl -L https://api.github.com/repos/trapd00r/LS_COLORS/tarball/master | tar xzf  - --directory=/tmp/LS_COLORS --strip=1
+( cd /tmp/LS_COLORS && sh install.sh  )
+
+bash init-dotfiles.sh $GITHUB_USER $USERNAME
 
 

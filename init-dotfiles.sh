@@ -1,35 +1,43 @@
 set -e
 
-user=$1
+GITHUB_USER=$1
+USERNAME=$2
 repo=dotfiles
 link=true
+HOME_DIR=/home/$USERNAME
+
 
 if [ -z "$1" ]
 then
-  echo "ERROR[NO_ARG_USER]: You must specify arg user"
+  echo "ERROR[NO_ARG_USER]: You must specify arg github user"
   exit
 fi
-if [ -d "~/dotfiles"  ]
+if [ -z "$2" ]
 then
-  rm ~/dotfiles
+  HOME_DIR=$HOME
+  echo "no username specified, assuming root"
 fi
 
-git clone https://github.com/$user/$repo ~/dotfiles
-cd ~/dotfiles
+if [ ! -d $HOME_DIR/dotfiles ]; then
+  echo "$HOME_DIR/dotfiles exists, not fetching from githubg repo"
+  git clone https://github.com/$GITHUB_USER/$repo $HOME_DIR/dotfiles
+fi
+
+cd $HOME_DIR/dotfiles
 
 git submodule init
 git submodule update
 
-dotfilesDir=~/dotfiles
+dotfilesDir=$HOME_DIR/dotfiles
 
 function linkDotfile {
-  dest="${HOME}/${1}"
+  dest="${HOME_DIR}/${1}"
   dateStr=$(date +%Y-%m-%d-%H%M)
 
   if [ -h ~/${1} ]; then
     # Existing symlink 
     echo "Removing existing symlink: ${dest}"
-    rm ${dest} 
+    rm -f ${dest} 
 
   elif [ -f "${dest}" ]; then
     # Existing file
