@@ -24,4 +24,4 @@ apt-get install -y \
     yamllint
 
 echo !! Installing dotfiles...
-sudo -u $USERNAME bash init-dotfiles.sh $GITHUB_USER $USERNAME
+sudo -u $USERNAME bash scripts/init-dotfiles.sh $GITHUB_USER $USERNAME
