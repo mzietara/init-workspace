@@ -26,5 +26,5 @@ apt-get install -y \
     fonts-powerline \
     yamllint
 
-echo 🎵 Installing dotfiles...
-sudo -u $USERNAME bash scripts/init-dotfiles.sh $GITHUB_USER $USERNAME
+echo 🎵 Syncing dotfiles...
+sudo -u $USERNAME bash scripts/sync-dotfiles.sh $GITHUB_USER $USERNAME

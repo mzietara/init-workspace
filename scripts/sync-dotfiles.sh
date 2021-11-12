@@ -20,7 +20,7 @@ then
 fi
 
 if [ ! -d $HOME_DIR/dotfiles ]; then
-  echo "$HOME_DIR/dotfiles exists, not fetching from githubg repo"
+  echo "$HOME_DIR/dotfiles does not exist, fetching from githubg repo"
   git clone https://github.com/$GITHUB_USER/$repo $HOME_DIR/dotfiles
 fi
 
