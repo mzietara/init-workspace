@@ -191,3 +191,12 @@ hi Normal guibg=NONE ctermbg=NONE
 
 map <leader><leader>/ /<C-r><C-w><CR><leader>/<C-r><C-w><cr>
 map <leader>v :tabnew ~/.vimrc<cr>G
+
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+    augroup END
+end
