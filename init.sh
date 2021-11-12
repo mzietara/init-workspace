@@ -1,17 +1,18 @@
-USERNAME=mark
+USERNAME=$(whoami)
 GITHUB_USER=mzietara
 
+echo !! Hello, $USERNAME!\n
 set -e
-apt update
+echo !! Updating apt-get...
 apt-get update
 apt-get upgrade -y
 
-apt install -y vim \
+echo !! Installing packages...
+apt-get install -y \
+    vim \
     ripgrep \
     fzf \
-    vim-gtk3
-
-apt-get install -y \
+    vim-gtk3 \
     git \
     software-properties-common \
     apt-transport-https \
@@ -22,4 +23,5 @@ apt-get install -y \
     fonts-powerline \
     yamllint
 
+echo !! Installing dotfiles...
 sudo -u $USERNAME bash init-dotfiles.sh $GITHUB_USER $USERNAME
