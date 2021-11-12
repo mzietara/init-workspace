@@ -1,13 +1,16 @@
+#!/bin/bash
+set -e
+
 USERNAME=$(whoami)
 GITHUB_USER=mzietara
 
-echo !! Hello, $USERNAME!\n
+echo 🎵 Hello, $USERNAME!\n
 set -e
-echo !! Updating apt-get...
+echo 🎵 Updating apt-get...
 apt-get update
 apt-get upgrade -y
 
-echo !! Installing packages...
+echo 🎵 Installing packages...
 apt-get install -y \
     vim \
     ripgrep \
@@ -23,5 +26,5 @@ apt-get install -y \
     fonts-powerline \
     yamllint
 
-echo !! Installing dotfiles...
+echo 🎵 Installing dotfiles...
 sudo -u $USERNAME bash scripts/init-dotfiles.sh $GITHUB_USER $USERNAME
