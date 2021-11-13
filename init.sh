@@ -26,5 +26,7 @@ apt-get install -y \
     fonts-powerline \
     yamllint
 
+./scripts/install-go.sh
+
 echo 🎵 Syncing dotfiles...
 sudo -u $USERNAME bash scripts/sync-dotfiles.sh $GITHUB_USER $USERNAME
