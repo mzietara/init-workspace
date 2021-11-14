@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
-./check-root.sh
+./scripts/check-root.sh
 
-source ./add-to-path.sh
+source ./scripts/add-to-path.sh
 GO_VERSION=1.17.3
 
 if go version ; then

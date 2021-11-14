@@ -1,11 +1,15 @@
 #!/bin/bash
 set -e
 
-USERNAME=$(whoami)
+USERNAME=$1
 GITHUB_USER=mzietara
 
-echo 🎵 Hello, $USERNAME!\n
-set -e
+if [ $# -eq 0 ]; then
+    echo "Please provide one argument which is your username"
+    exit 1
+fi
+
+echo 🎵 Hello, $USERNAME!
 echo 🎵 Updating apt-get...
 apt-get update
 apt-get upgrade -y
@@ -25,6 +29,7 @@ apt-get install -y \
     ctags \
     fonts-powerline \
     yamllint
+
 
 ./scripts/install-go.sh
 
